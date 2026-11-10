@@ -50,12 +50,23 @@ namespace konzola_git
             Console.WriteLine("U kterého zvířete chcete upravit jejich atributy?");
             for (int i =0; i<list.Count; i++)
             {
-                Console.WriteLine(list[i].jmeno);
+                Console.WriteLine((list[i].ID)+" "+(list[i].jmeno));
             }
             Console.WriteLine();
             Console.Write("Zadejte ID: ");
             int volba = int.Parse(Console.ReadLine());
-            if ((volba - 1) < 0 || (volba - 1) > list.Count)
+            bool existuje = false;
+            int zvolene;
+            for (int i = 0, i<list.Count, int++)
+            {
+                if (volba == list[i].ID)
+                {
+                    existuje = true;
+                    zvolene = i;
+                    break;
+                }
+            }
+            if (!existuje)
             {
                 Console.WriteLine("Neplatné ID.");
             }
@@ -68,22 +79,22 @@ namespace konzola_git
                     case "jméno":
                         Console.Write("Zadejte jméno zvířete: ");
                         string jmeno = Console.ReadLine();
-                        list[volba - 1].jmeno = jmeno;
+                        list[zvolene].jmeno = jmeno;
                         break;
                     case "druh":
                         Console.Write("Zadejte druh zvířete: ");
                         string druh = Console.ReadLine();
-                        list[volba - 1].druh = druh;
+                        list[zvolene].druh = druh;
                         break;
                     case "věk":
                         Console.Write("Zadejte jméno zvířete: ");
                         int vek = int.Parse(Console.ReadLine());
-                        list[volba - 1].vek = vek;
+                        list[zvolene].vek = vek;
                         break;
                     case "pohlaví":
                         Console.Write("Zadejte jméno zvířete: ");
                         string pohlavi = Console.ReadLine();
-                        list[volba - 1].pohlavi = pohlavi;
+                        list[zvolene].pohlavi = pohlavi;
                         break;
                     default:
                         Console.WriteLine("Zadejte přesný název atributy, kterou chcete změnit.");
@@ -102,13 +113,65 @@ namespace konzola_git
             Console.WriteLine();
             Console.Write("Zadejte ID: ");
             int volba = int.Parse(Console.ReadLine());
-            if ((volba - 1) < 0 || (volba - 1) > list.Count)
+            bool existuje = false;
+            int zvolene;
+            for (int i = 0, i < list.Count, int++)
+            {
+                if (volba == list[i].ID)
+                {
+                    existuje = true;
+                    zvolene = i;
+                    break;
+                }
+            }
+            if (!existuje)
             {
                 Console.WriteLine("Neplatné ID.");
             }
             else
             {
+                list.RemoveAt(zvolene);
+                Console.WriteLine("Zvíře bylo eutanizováno.")
+            }
+        }
 
+        public void Vypis()
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine((list[i].ID) + " " + (list[i].jmeno) + " " + (list[i].druh) + " " + (list[i].vek) + " " + (list[i].pohlavi) + " " + (list[i].adoptovano));
+            }
+                Console.WriteLine();
+        }
+
+        public void Adoptovat()
+        {
+            Console.WriteLine("Které zvíře chcete adoptovat?");
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine((list[i].ID) + " " + (list[i].jmeno));
+            }
+            Console.WriteLine();
+            Console.Write("Zadejte ID: ");
+            int volba = int.Parse(Console.ReadLine());
+            bool existuje = false;
+            int zvolene;
+            for (int i = 0, i < list.Count, int++)
+            {
+                if (volba == list[i].ID)
+                {
+                    existuje = true;
+                    zvolene = i;
+                    break;
+                }
+            }
+            if (!existuje)
+            {
+                Console.WriteLine("Neplatné ID.");
+            }
+            else
+            {
+                list[i].adoptovano = true;
             }
         }
     }
