@@ -12,9 +12,7 @@ namespace konzola_git
     {
         static void Main(string[] args)
         {
-            Console.Write("toto napsal kubaM");
-            Console.Write("Kocich test");
-            Console.WriteLine(KonzoleUI.Menu());
+            KonzoleUI.Menu();
         }
     }
 }

@@ -26,6 +26,7 @@ namespace konzola_git
             string volba = Console.ReadLine();
             bool vybrane = false;
             bool adopce = false;
+            Console.WriteLine();
             if (volba.ToUpper() == "A")
             {
                 adopce = true;
@@ -42,6 +43,8 @@ namespace konzola_git
             if (vybrane)
             {
                 Zvire zvire = new Zvire(jmeno, druh, vek, pohlavi, adopce);
+                list.Add(zvire);
+                Console.WriteLine("Zvíře bylo přidané do seznamu.");
             }
         }
 
@@ -137,9 +140,16 @@ namespace konzola_git
 
         public void Vypis()
         {
-            for (int i = 0; i < list.Count; i++)
+            if (list.Count == 0)
             {
-                Console.WriteLine((list[i].ID) + " " + (list[i].Jmeno) + " " + (list[i].Druh) + " " + (list[i].Vek) + " " + (list[i].Pohlavi) + " " + (list[i].Adoptovano));
+                Console.WriteLine("V seznamu nejsou žádné zvířata.");
+            }
+            else
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    Console.WriteLine((list[i].ID) + " " + (list[i].Jmeno) + " " + (list[i].Druh) + " " + (list[i].Vek) + " " + (list[i].Pohlavi) + " " + (list[i].Adoptovano));
+                }
             }
                 Console.WriteLine();
         }
