@@ -12,6 +12,7 @@ namespace konzola_git
         {
             Console.Write("toto napsal kubaM");
             Console.Write("Kocich test");
+            Console.Write("Testování branchování.");
         }
     }
 }
