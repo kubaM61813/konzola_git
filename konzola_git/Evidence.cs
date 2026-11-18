@@ -53,7 +53,7 @@ namespace konzola_git
             Console.WriteLine("U kterého zvířete chcete upravit jejich atributy?");
             for (int i =0; i<list.Count; i++)
             {
-                Console.WriteLine((list[i].ID)+" "+(list[i].Jmeno));
+                Console.WriteLine(("ID: "+list[i].ID)+", jméno: "+(list[i].Jmeno));
             }
             Console.WriteLine();
             Console.Write("Zadejte ID: ");
@@ -75,7 +75,7 @@ namespace konzola_git
             }
             else
             {
-                Console.Write("Kterou atributu chcete změnit? (jméno, druh, věk, pohlaví, adopce): ");
+                Console.Write("Kterou atributu chcete změnit? (jméno, druh, věk, pohlaví): ");
                 string volbaAtributy = Console.ReadLine();
                 switch (volbaAtributy.ToLower())
                 {
@@ -108,10 +108,10 @@ namespace konzola_git
 
         public void Smazat()
         {
-            Console.WriteLine("Které zvíře chcete odstranit");
+            Console.WriteLine("Které zvíře chcete odstranit ze seznamu?");
             for (int i = 0; i < list.Count; i++)
             {
-                Console.WriteLine(list[i].Jmeno);
+                Console.WriteLine(("ID: " + list[i].ID) + " jméno: " + (list[i].Jmeno) + " druh: " + (list[i].Druh) + " věk: " + (list[i].Vek) + " pohlaví: " + (list[i].Pohlavi) + " stav adopce: " + (list[i].Adoptovano));
             }
             Console.WriteLine();
             Console.Write("Zadejte ID: ");
@@ -148,7 +148,7 @@ namespace konzola_git
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    Console.WriteLine((list[i].ID) + " " + (list[i].Jmeno) + " " + (list[i].Druh) + " " + (list[i].Vek) + " " + (list[i].Pohlavi) + " " + (list[i].Adoptovano));
+                    Console.WriteLine(("ID: " + list[i].ID) + " jméno: " + (list[i].Jmeno) + " druh: " + (list[i].Druh) + " věk: " + (list[i].Vek) + " pohlaví: " + (list[i].Pohlavi) + " stav adopce: " + (list[i].Adoptovano));
                 }
             }
                 Console.WriteLine();
@@ -159,7 +159,7 @@ namespace konzola_git
             Console.WriteLine("Které zvíře chcete adoptovat?");
             for (int i = 0; i < list.Count; i++)
             {
-                Console.WriteLine((list[i].ID) + " " + (list[i].Jmeno));
+                Console.WriteLine(("ID: " + list[i].ID) + " jméno: " + (list[i].Jmeno) + " druh: " + (list[i].Druh) + " věk: " + (list[i].Vek) + " pohlaví: " + (list[i].Pohlavi) + " stav adopce: " + (list[i].Adoptovano));
             }
             Console.WriteLine();
             Console.Write("Zadejte ID: ");

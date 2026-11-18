@@ -14,7 +14,7 @@ namespace konzola_git
             bool run = true;
             while (run)
             {
-                Console.Write("===== ÚTULEK PRO ZVÍŘATA =====\r\n1) Přidat zvíře\r\n2) Vypsat všechna zvířata\r\n3) Vyhledat/ filtrovat\r\n4) Označit adopci\r\n5) Statistiky (volitelné)\r\n0) Konec\r\nVolba: ");
+                Console.Write("===== ÚTULEK PRO ZVÍŘATA =====\r\n1) Přidat zvíře\r\n2) Vypsat celý seznam\r\n3) Upravit záznam (beze změny stavu adopce)\r\n4) Smazat záznam\r\n5) Adoptovat zvíře\r\n0) Konec\r\nVolba: ");
                 string user_volba = Console.ReadLine();
                 Console.WriteLine();
                 if (int.TryParse(user_volba, out int volba))
@@ -26,9 +26,17 @@ namespace konzola_git
                             break;
 
                         case "2":
-                            evidence.Vypis();   //dokončit tady metodu + poupravit to UI, aby tam byly vypsány funkce, který to reálně umí
+                            evidence.Vypis();
                             break;
-
+                        case "3":
+                            evidence.Uprava();
+                            break;
+                        case "4":
+                            evidence.Smazat();
+                            break;
+                        case "5":
+                            evidence.Adoptovat();
+                            break;
                         case "0":
                             Console.WriteLine("Ukončuji program. Děkujeme za využívání naší aplikace.");
                             run = false;
